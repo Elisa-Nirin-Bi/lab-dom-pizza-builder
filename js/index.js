@@ -85,7 +85,7 @@ function renderButtons() {
   let buttons = document.getElementsByClassName('btn')
   let states = Object.values(state)
   for(let i = 0; i < states.length; i++){
-    if(states){
+    if(states[i]){
       buttons[i].classList.add('active')
     }else {
       buttons[i].classList.remove('active')
@@ -94,17 +94,20 @@ function renderButtons() {
   }
   
 function renderPrice(){
-  let price = document.querySelector('.panel.price');
-  let allPrice = price.querySelectorAll('li');
- 
-  allPrice.forEach((onePrice) => {
-    if (!state) {
-      onePrice.className === 'inactive';
+  let price = document.querySelector('.panel.price ul');
+  let priceList = price.children
+  let stateToppings = Object.values(state);
+  
+   
+for(let i = 0; i < stateToppings .length; i++)
+    if (stateToppings[i]) {
+     
+    priceList[i].style.visibility = 'visible';
     } else {
-      onePrice.className === 'active';
+      priceList[i].style.visibility = 'hidden';
     }
-  });
-}
+  }
+
 
 // Iteration 3: add/remove the class "active" of each `<button class="btn">`
 
